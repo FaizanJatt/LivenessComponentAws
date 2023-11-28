@@ -5,13 +5,13 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
-  {
-    path: "/:id",
-    element: <App />,
-  },
+  // {
+  //   path: "/:id",
+  //   element: <App />,
+  // },
   {
     path: "/",
-    element: <div>Please enter a valid authID as a param</div>,
+    element: <App />,
   },
 ]);
 
