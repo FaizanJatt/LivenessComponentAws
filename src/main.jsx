@@ -5,10 +5,10 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
-  // {
-  //   path: "/:id",
-  //   element: <App />,
-  // },
+  {
+    path: "/:id",
+    element: <App />,
+  },
   {
     path: "/",
     element: <App />,
