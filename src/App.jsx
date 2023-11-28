@@ -24,8 +24,8 @@ function App() {
 
   const [authToken, setAuthToken] = useState(token);
 
-  const API = "https://apostrfy.herokuapp.com/api/v1";
-  const login = `${API}/auth/login`;
+  // const API = "https://apostrfy.herokuapp.com/api/v1";
+  // const login = `${API}/auth/login`;
 
   // async function getAuthId() {
   //   try {
@@ -47,15 +47,6 @@ function App() {
   // setAuthToken(result);
   // console.log("authTokenStored:", result || null);
   // }, []);
-
-  // const injectedObject = window.ReactNativeWebView.injectedObjectJson();
-
-  // const authToken = useMemo(() => {
-  //   if (!window.accessToken) {
-  //     return JSON.parse(injectedObject).token;
-  //   }
-  //   return window.accessToken;
-  // }, [window.accessToken, injectedObject]);
 
   const handleAnalysis = async () => {
     // window.ReactNativeWebView.postMessage("verifying");
@@ -87,7 +78,7 @@ function App() {
       } else {
         console.log("failure", data.confidence);
         // window.ReactNativeWebView.postMessage("Fail");
-        // location.href = 'apostrfy://error';
+        location.href = "apostrfy://error";
       }
     } catch (error) {
       console.log("failure", error);
