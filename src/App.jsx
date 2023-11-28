@@ -49,7 +49,6 @@ function App() {
   // }, []);
 
   const handleAnalysis = async () => {
-    // window.ReactNativeWebView.postMessage("verifying");
     console.log("handle analysis");
     const config = {
       headers: {
@@ -65,32 +64,23 @@ function App() {
       const data = response.data;
       if (typeof data === "string") {
         console.log(data);
-        // window.ReactNativeWebView.postMessage(`data: ${data}`);
       } else {
         console.log(data);
-        // window.ReactNativeWebView.postMessage(JSON.stringify(data));
       }
 
       if (data.confidence >= 75) {
         console.log("success", data.confidence);
         location.href = "apostrfy://success";
-        // window.ReactNativeWebView.postMessage("Pass");
       } else {
         console.log("failure", data.confidence);
-        // window.ReactNativeWebView.postMessage("Fail");
         location.href = "apostrfy://error";
       }
     } catch (error) {
       console.log("failure", error);
-
-      // window.ReactNativeWebView.postMessage("Fail");
     }
   };
 
   const getSessionID = async () => {
-    // console.log(authToken);
-    // console.log(authToken.split(" ")[0]);
-
     const config = {
       headers: {
         "Content-Type": "application/json",
