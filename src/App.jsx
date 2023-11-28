@@ -22,7 +22,7 @@ function App() {
   const token = searchParams.get("id");
   console.log(token, "here");
 
-  const [authToken, setAuthToken] = useState();
+  const [authToken, setAuthToken] = useState(token);
 
   const API = "https://apostrfy.herokuapp.com/api/v1";
   const login = `${API}/auth/login`;
