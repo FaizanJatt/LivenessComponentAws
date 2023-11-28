@@ -20,6 +20,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [searchParams] = useSearchParams();
   const token = searchParams.get("id");
+  console.log(token, "here");
 
   const [authToken, setAuthToken] = useState();
 
