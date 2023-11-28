@@ -1,16 +1,14 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
+
 import "./App.css";
 import { Amplify } from "aws-amplify";
 import { FaceLivenessDetector } from "@aws-amplify/ui-react-liveness";
 import awsexports from "./aws-exports";
 import axios from "axios";
-import { useRef } from "react";
 import {
   BrowserRouter as Router,
-  Route,
-  Link,
   useSearchParams,
   useParams,
 } from "react-router-dom";
@@ -20,11 +18,8 @@ Amplify.configure(awsexports);
 function App() {
   const [sessionID, setSessionID] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const params = useParams();
   const [searchParams] = useSearchParams();
   const token = searchParams.get("id");
-  // console.log(params, searchParams.get("id"));
-  // console.log(searchParams.get("id"));
 
   const [authToken, setAuthToken] = useState();
 
