@@ -27,26 +27,26 @@ function App() {
   const API = "https://apostrfy.herokuapp.com/api/v1";
   const login = `${API}/auth/login`;
 
-  async function getAuthId() {
-    try {
-      setIsLoading(true);
-      const response = await axios.post(login, {
-        userCode: "h01io",
-        password: "Test1234!",
-      });
-      console.log(response.data.data.accessToken);
-      setAuthToken(response.data.data.accessToken);
-    } catch (err) {
-      console.log(err);
-      console.log("Something went wrong");
-    }
-  }
+  // async function getAuthId() {
+  //   try {
+  //     setIsLoading(true);
+  //     const response = await axios.post(login, {
+  //       userCode: "h01io",
+  //       password: "Test1234!",
+  //     });
+  //     console.log(response.data.data.accessToken);
+  //     setAuthToken(response.data.data.accessToken);
+  //   } catch (err) {
+  //     console.log(err);
+  //     console.log("Something went wrong");
+  //   }
+  // }
 
-  useEffect(() => {
-    const result = searchParams.get("id");
-    setAuthToken(result);
-    console.log("authTokenStored:", result || null);
-  }, []);
+  // useEffect(() => {
+  // const result = searchParams.get("id");
+  // setAuthToken(result);
+  // console.log("authTokenStored:", result || null);
+  // }, []);
 
   // const injectedObject = window.ReactNativeWebView.injectedObjectJson();
 
