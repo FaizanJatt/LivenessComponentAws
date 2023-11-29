@@ -19,13 +19,13 @@ body {
   display: none;
 }
 
-.canvas,
-.amplify-liveness-match-indicator {
+.canvas {
   display: none;
 }
-.amplify-liveness-toast {
-  background-color: #f0f8ff00;
+
+.amplify-liveness-match-indicator {
 }
+
 /* .amplify-liveness-overlay  */
 
 /* amplify-flex amplify-liveness-overlay amplify-liveness-instruction-overlay */
@@ -33,9 +33,6 @@ body {
 /* .amplify-liveness-instruction-overlay {
   display: none;
 } */
-.amplify-liveness-toast__message {
-  color: "#c5c2c2" !important;
-}
 
 .amplify-liveness-recording-icon-container {
   display: none;
@@ -49,4 +46,18 @@ body {
 
 .amplify-liveness-oval-canvas--mobile > * {
   width: 100%;
+}
+.amplify-liveness-toast--large {
+  background-color: white;
+}
+.amplify-liveness-toast--large > div {
+  color: black;
+}
+
+.amplify-liveness-toast__message {
+  color: #c5c2c2 !important;
+}
+
+.amplify-liveness-toast__container > div {
+  color: "#c5c2c2" !important;
 }
