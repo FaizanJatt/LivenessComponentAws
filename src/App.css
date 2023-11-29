@@ -9,3 +9,37 @@
 .liveness-detector-check {
   z-index: -1;
 }
+
+body {
+  background-image: url("./assets/gradient.png");
+}
+
+.amplify-liveness-cancel-container,
+.amplify-liveness-toast--default {
+  display: none;
+}
+
+.canvas,
+.amplify-liveness-match-indicator {
+  display: none;
+}
+.amplify-liveness-toast {
+  background-color: #f0f8ff00;
+}
+/* .amplify-liveness-overlay  */
+
+/* amplify-flex amplify-liveness-overlay amplify-liveness-instruction-overlay */
+
+/* .amplify-liveness-instruction-overlay {
+  display: none;
+} */
+
+.amplify-liveness-recording-icon-container {
+  display: none;
+}
+
+/*  */
+.amplify-liveness-video-anchor {
+  /* aspect-ratio: 1.25 / 1 !important; */
+  height: 100%;
+}
