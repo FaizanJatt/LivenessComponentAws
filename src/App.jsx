@@ -20,6 +20,8 @@ Amplify.configure(awsexports);
 function App() {
   const [sessionID, setSessionID] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [verifying, setVerifying] = useState(false);
+
   const [searchParams] = useSearchParams();
   const token = searchParams.get("id");
   console.log(token, "here");
@@ -46,6 +48,10 @@ function App() {
   // }
 
   const handleAnalysis = async () => {
+    if (window.ReactNativeWebView) {
+      window.ReactNativeWebView.postMessage(`ERROR: ${err}`);
+    }
+
     console.log("handle analysis");
     const config = {
       headers: {
@@ -132,7 +138,11 @@ function App() {
               onAnalysisComplete={handleAnalysis}
               onError={handleError}
               disableInstructionScreen={true}
+              components={{}}
             />
+            {verifying && (
+              <div className="w-full h-full absolute bg-[#161519] opacity-50 z-10" />
+            )}
           </div>
         )}
       </div>
