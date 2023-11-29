@@ -23,9 +23,6 @@ body {
   display: none;
 }
 
-.amplify-liveness-match-indicator {
-}
-
 /* .amplify-liveness-overlay  */
 
 /* amplify-flex amplify-liveness-overlay amplify-liveness-instruction-overlay */
@@ -40,7 +37,6 @@ body {
 
 /*  */
 .amplify-liveness-video-anchor {
-  /* aspect-ratio: 1.25 / 1 !important; */
   height: 100%;
 }
 
