@@ -69,7 +69,7 @@ function App() {
         console.log("success", data.confidence);
         location.href = "apostrfy://success";
       } else {
-        console.log("failure", data.confidence);
+        console.log("failure", data.confidence, "sending to error page");
         location.href = "apostrfy://error";
       }
     } catch (error) {
