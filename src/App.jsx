@@ -48,10 +48,6 @@ function App() {
   // }
 
   const handleAnalysis = async () => {
-    if (window.ReactNativeWebView) {
-      window.ReactNativeWebView.postMessage(`ERROR: ${err}`);
-    }
-
     console.log("handle analysis");
     const config = {
       headers: {
