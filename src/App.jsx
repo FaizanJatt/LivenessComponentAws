@@ -2,9 +2,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 
+import "@aws-amplify/ui-react/styles.css";
 import "./App.css";
 import { Amplify } from "aws-amplify";
 import { FaceLivenessDetector } from "@aws-amplify/ui-react-liveness";
+import { useRef } from "react";
 import awsexports from "./aws-exports";
 import axios from "axios";
 import {
@@ -21,6 +23,7 @@ function App() {
   const [searchParams] = useSearchParams();
   const token = searchParams.get("id");
   console.log(token, "here");
+  const windowSize = useRef([window.innerWidth, window.innerHeight]);
 
   const [authToken, setAuthToken] = useState(token);
 
@@ -41,12 +44,6 @@ function App() {
   //     console.log("Something went wrong");
   //   }
   // }
-
-  // useEffect(() => {
-  // const result = searchParams.get("id");
-  // setAuthToken(result);
-  // console.log("authTokenStored:", result || null);
-  // }, []);
 
   const handleAnalysis = async () => {
     console.log("handle analysis");
@@ -125,7 +122,7 @@ function App() {
       <div className="container">
         {isLoading ? (
           <>
-            <h2 style={{ color: "red" }}>Loading...</h2>
+            <h2>Loading...</h2>
           </>
         ) : (
           <div>
@@ -136,9 +133,6 @@ function App() {
               onError={handleError}
               disableInstructionScreen={true}
             />
-            <h2 style={{ color: "red", top: "100px", position: "absolute" }}>
-              Showing...
-            </h2>
           </div>
         )}
       </div>
