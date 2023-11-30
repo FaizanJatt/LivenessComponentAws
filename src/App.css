@@ -51,9 +51,9 @@ body {
 }
 
 .amplify-liveness-toast__message {
-  color: #c5c2c2 !important;
+  color: black !important;
 }
-
+/* 
 .amplify-liveness-toast__container > div {
   color: "#c5c2c2" !important;
-}
+} */

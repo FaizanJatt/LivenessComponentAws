@@ -24,8 +24,8 @@ function App() {
 
   const [searchParams] = useSearchParams();
   const token = searchParams.get("id");
-  console.log(token, "here");
-  const windowSize = useRef([window.innerWidth, window.innerHeight]);
+  // console.log(token, "here");
+  // const windowSize = useRef([window.innerWidth, window.innerHeight]);
 
   const [authToken, setAuthToken] = useState(token);
 
@@ -36,7 +36,7 @@ function App() {
   //   try {
   //     setIsLoading(true);
   //     const response = await axios.post(login, {
-  //       userCode: "h01io",
+  //       userCode: "R19AQ",
   //       password: "Test1234!",
   //     });
   //     console.log(response.data.data.accessToken);
@@ -47,8 +47,13 @@ function App() {
   //   }
   // }
 
+  // useEffect(() => {
+  //   getAuthId();
+  // }, []);
+
   const handleAnalysis = async () => {
     console.log("handle analysis");
+    setVerifying(true);
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -95,13 +100,7 @@ function App() {
       setSessionID(response.data.sessionId);
       setIsLoading(false);
     } catch (err) {
-      if (typeof err === "string") {
-        console.log(err);
-        // window.ReactNativeWebView.postMessage(`ERROR: ${err}`);
-      } else {
-        console.log(err);
-        // window.ReactNativeWebView.postMessage(JSON.stringify(err));
-      }
+      console.log(err);
     }
   };
 
@@ -136,8 +135,19 @@ function App() {
               disableInstructionScreen={true}
               components={{}}
             />
+
             {verifying && (
-              <div className="w-full h-full absolute bg-[#161519] opacity-50 z-10" />
+              <div
+                style={{
+                  position: "absolute",
+                  color: "white",
+                  bottom: 300,
+                  width: "100%",
+                  textAlign: "center",
+                }}
+              >
+                Successfully Redirecting to the next page
+              </div>
             )}
           </div>
         )}
