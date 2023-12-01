@@ -5,13 +5,9 @@
     "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "apostr961b5930",
     "userPoolName": "apostrfyamplifyui961b5930_userpool_961b5930",
-    "autoVerifiedAttributes": [
-      "phone_number"
-    ],
+    "autoVerifiedAttributes": ["phone_number"],
     "mfaConfiguration": "OFF",
-    "mfaTypes": [
-      "SMS Text Message"
-    ],
+    "mfaTypes": ["SMS Text Message"],
     "smsAuthenticationMessage": "Your authentication code is {####}",
     "smsVerificationMessage": "Your verification code is {####}",
     "emailVerificationSubject": "Your verification code",
@@ -19,18 +15,12 @@
     "defaultPasswordPolicy": false,
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [],
-    "requiredAttributes": [
-      "email"
-    ],
+    "requiredAttributes": ["email"],
     "aliasAttributes": [],
     "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": 30,
-    "userpoolClientWriteAttributes": [
-      "email"
-    ],
-    "userpoolClientReadAttributes": [
-      "email"
-    ],
+    "userpoolClientWriteAttributes": ["email"],
+    "userpoolClientReadAttributes": ["email"],
     "userpoolClientLambdaRole": "apostr961b5930_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
     "sharedId": "961b5930",
