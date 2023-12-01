@@ -1,19 +1,12 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 import "@aws-amplify/ui-react/styles.css";
 import "./App.css";
 import { Amplify } from "aws-amplify";
 import { FaceLivenessDetector } from "@aws-amplify/ui-react-liveness";
-import { useRef } from "react";
 import awsexports from "./aws-exports";
 import axios from "axios";
-import {
-  BrowserRouter as Router,
-  useSearchParams,
-  useParams,
-} from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 Amplify.configure(awsexports);
 
@@ -24,32 +17,8 @@ function App() {
 
   const [searchParams] = useSearchParams();
   const token = searchParams.get("id");
-  // console.log(token, "here");
-  // const windowSize = useRef([window.innerWidth, window.innerHeight]);
-
-  const [authToken, setAuthToken] = useState(token);
-
-  // const API = "https://apostrfy.herokuapp.com/api/v1";
-  // const login = `${API}/auth/login`;
-
-  // async function getAuthId() {
-  //   try {
-  //     setIsLoading(true);
-  //     const response = await axios.post(login, {
-  //       userCode: "R19AQ",
-  //       password: "Test1234!",
-  //     });
-  //     console.log(response.data.data.accessToken);
-  //     setAuthToken(response.data.data.accessToken);
-  //   } catch (err) {
-  //     console.log(err);
-  //     console.log("Something went wrong");
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   getAuthId();
-  // }, []);
+  console.log(token, "here");
+  const authToken = token;
 
   const handleAnalysis = async () => {
     console.log("handle analysis");
@@ -66,11 +35,7 @@ function App() {
         config
       );
       const data = response.data;
-      if (typeof data === "string") {
-        console.log(data);
-      } else {
-        console.log(data);
-      }
+      console.log(data);
 
       if (data.confidence >= 75) {
         console.log("success", data.confidence);
@@ -84,7 +49,7 @@ function App() {
     }
   };
 
-  const getSessionID = async () => {
+  const getSessionID = useCallback(async () => {
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -102,21 +67,15 @@ function App() {
     } catch (err) {
       console.log(err);
     }
-  };
+  }, [authToken]);
 
   const handleError = (error) => {
-    if (typeof error === "string") {
-      // window.ReactNativeWebView.postMessage(`ERROR: ${error}`);
-    } else {
-      // window.ReactNativeWebView.postMessage(JSON.stringify(error));
-    }
+    console.log(error);
   };
 
   useEffect(() => {
     getSessionID();
-  }, [authToken]);
-
-  useEffect(() => {});
+  }, [authToken, getSessionID]);
 
   return (
     <>
@@ -133,20 +92,11 @@ function App() {
               onAnalysisComplete={handleAnalysis}
               onError={handleError}
               disableInstructionScreen={true}
-              components={{}}
             />
 
             {verifying && (
-              <div
-                style={{
-                  position: "absolute",
-                  color: "white",
-                  bottom: 300,
-                  width: "100%",
-                  textAlign: "center",
-                }}
-              >
-                Successfully Redirecting to the next page
+              <div className="verifying-text">
+                <p>Successfully Redirecting to the next page</p>
               </div>
             )}
           </div>
