@@ -78,31 +78,29 @@ function App() {
   }, [authToken, getSessionID]);
 
   return (
-    <>
-      <div className="container">
-        {isLoading ? (
-          <>
-            <h2>Loading...</h2>
-          </>
-        ) : (
-          <div>
-            <FaceLivenessDetector
-              sessionId={sessionID}
-              region="ap-south-1"
-              onAnalysisComplete={handleAnalysis}
-              onError={handleError}
-              disableInstructionScreen={true}
-            />
+    <div className="container">
+      {isLoading ? (
+        <>
+          <h2>Loading...</h2>
+        </>
+      ) : (
+        <>
+          <FaceLivenessDetector
+            sessionId={sessionID}
+            region="ap-south-1"
+            onAnalysisComplete={handleAnalysis}
+            onError={handleError}
+            disableInstructionScreen={true}
+          />
 
-            {verifying && (
-              <div className="verifying-text">
-                <p>Successfully Redirecting to the next page</p>
-              </div>
-            )}
-          </div>
-        )}
-      </div>
-    </>
+          {verifying && (
+            <div className="verifying-text">
+              <p>Successfully Redirecting to the next page</p>
+            </div>
+          )}
+        </>
+      )}
+    </div>
   );
 }
 
